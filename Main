@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("--- GUI THONG BAO KHUYEN MAI CRM ---");
+        System.out.print("Nhap so dien thoai: ");
+        String phone = sc.nextLine();
+        System.out.print("Nhap email: ");
+        String email = sc.nextLine();
+        System.out.print("Nhap noi dung thong bao: ");
+        String message = sc.nextLine();
+        INotifier[] notifiers = {new EmailNotifier(), new SMSNotifier()};
+        System.out.println();
+        System.out.println("+-------------------------------------------------------+");
+        System.out.println("|           HE THONG GUI TIN NHAN CRM RIKKEI           |");
+        System.out.println("+-------------------------------------------------------+");
+        notifiers[0].sendNotification(email, message);
+        notifiers[1].sendNotification(phone, message);
+    }
+}
